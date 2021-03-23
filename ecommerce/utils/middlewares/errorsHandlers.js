@@ -1,6 +1,17 @@
+const Sentry = require("@sentry/node");
 const { config } = require("../../config");
 
+Sentry.init({ 
+  dsn: `https://${config.sentryDns}@o517791.ingest.sentry.io/${config.sentryId}`,
+  
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0, 
+});
+
 function logErrors(err, req, res, next) {
+  Sentry.captureException(err);
   console.log(err.stack);
   next(err);
 }
