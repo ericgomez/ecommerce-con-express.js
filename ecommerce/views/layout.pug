@@ -5,7 +5,7 @@ head
     title Octolion shop
     link(rel="stylesheet" href='https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css')
 
-    link(rel="stylesheet" href='/static/assets/main.css')
+    link(rel="stylesheet" href=`/static/assets/main${dev ? '.css' : '.min.css'}`)
 
 body(style="display: flex; min-height:100vh; flex-direction: column")
     script(defer src='https://use.fontawesome.com/releases/v5.15.2/js/all.js')
