@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "./index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/.*", "dest": "/" }
+  ],
+  "env": {
+    "PORT":"@config_port",
+    "DB_USER":"@octolion_db_user",
+    "DB_PASSWORD":"@octolion_db_password",
+    "DB_HOST":"@octolion_db_host",
+    "DB_NAME":"@octolion_db_name",
+    "SENTRY_DNS":"@auth-sentry-dns",
+    "SENTRY_ID":"@auth-sentry-id",
+    "AUTH_ADMIN_USERNAME":"@auth-admin-username",
+    "AUTH_PASSWORD":"@auth-admin-password",
+    "AUTH_ADMIN_EMAIL":"@auth-admin-email",
+    "AUTH_JWT_SECRET":"@auth-jwt-secret"
+  }
+}
