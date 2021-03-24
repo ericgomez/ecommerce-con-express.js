@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const boom = require("@hapi/boom");
 const debug = require("debug")("app:server");
+const helmet = require("helmet");
 const productsRouter = require('./routes/views/products');
 const productsApiRouter = require('./routes/api/products');
 const authApiRouter = require("./routes/api/auth");
@@ -21,6 +22,7 @@ const app = express();
 
 // middlewares
 // utilizamos express.json para procesar cuerpos que vienen en formato JSON
+app.use(helmet());
 app.use(express.json());
 
 // static files
